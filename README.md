@@ -1,4 +1,4 @@
-# 04-todo-app
+# 04-todo-applic
 A todo app in PHP
 
 # Quickstart (vagrant)
