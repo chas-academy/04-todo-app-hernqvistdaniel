@@ -1,13 +1,15 @@
 <footer class="footer">
     <span class="todo-count"><?= count(array_filter($todos, function($todo) { return $todo['completed'] === "false"; })) ?> item<?= "".count($todos) !== 1 ? "s" : "" ?> left</span>
-    <button class="clear-completed">Clear completed</button>
+    <form method="post" action="todos/clear-completed">
+    <a href="/todos/clear"><button class="clear-completed" type="submit">Clear completed</button></a>
+    </form>
 </footer>
 
 </main>
 
 <footer class="site-footer">
     <div class="small-container">
-        <p class="text-center">Made by <a href="#">Your Name Here</a></p>
+        <p class="text-center">Made by <a href="http://danielhernqvist.chas.academy" target="_blank">Daniel Hernqvist</a></p>
     </div>
 </footer>
 
