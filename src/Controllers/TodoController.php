@@ -58,10 +58,28 @@ class TodoController extends Controller
      * The two methods below are optional, feel free to try and complete them
      * if you're aiming for a higher grade.
      */
-    // public function toggle($urlParams)
-    // {
+    public function toggle($urlParams)
+    {
         
-    // }
+        $todos = TodoItem::findAll();
+        $bag = array_filter($todos, function ($todo) {
+            return $todo['completed'] === "false";
+        });
+        // $bag = count(array_filter($todos, function ($todo) {
+        //     return $todo['completed'] === "false";
+        // }));
+        $bag2 = count($bag);
+        var_dump($bag2);
+        if ($bag2 > 0) {
+            $result = TodoItem::toggleTodos('true');
+        } else {
+            $result = TodoItem::toggleTodos('false');
+        }
+        // $result = TodoItem::toggleTodos($bag);
+        if ($result) {
+            $this->redirect('/');
+        }
+    }
 
     public function clear($urlParams)
     {
